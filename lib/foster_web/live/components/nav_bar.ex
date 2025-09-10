@@ -15,7 +15,7 @@ defmodule FosterWeb.Components.NavBar do
     ~H"""
     <div class="flex justify-center gap-3 font-nohami pt-6">
       <div>
-        <a href="/">Home</a>
+        <a href="/">Início</a>
       </div>
       <div>
         <a href="/estatisticas">Estatísticas</a>
