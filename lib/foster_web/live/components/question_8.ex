@@ -22,8 +22,8 @@ defmodule FosterWeb.Components.Question8 do
       |> Map.put(:employment_status, params["employment_status"])
       |> Map.put(:education, params["education"])
 
-    # update database here
-    Foster.Answers.create_answer(%{body: updated_answers})
+    # probably not needed here
+    # Foster.Answers.create_answer(%{body: updated_answers})
 
     send(self(), {:update_answers, updated_answers})
 
