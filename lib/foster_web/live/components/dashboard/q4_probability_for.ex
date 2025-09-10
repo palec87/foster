@@ -1,12 +1,11 @@
-defmodule FosterWeb.Components.Dashboard.ProbForTucan do
+defmodule FosterWeb.Components.Dashboard.ProbFor do
   use FosterWeb, :live_component
 
   @impl true
-  def update(assigns, socket) do
+  def update(_assigns, socket) do
     answers =
       Foster.Answers.all_answers()
-      # |> Enum.group_by(fn answer -> get_in(answer.body["q3"]) end)
-      |> Enum.group_by(fn answer -> get_in(answer.body, ["q3"]) end)
+      |> Enum.group_by(fn answer -> get_in(answer.body, ["q4"]) end)
       |> Enum.reject(fn {groupname, _answers} -> is_nil(groupname) end)  # Filter out nil age spans
       |> Enum.map(fn {groupname, answers} -> [groupname, length(answers)]  end)
 
@@ -19,9 +18,9 @@ defmodule FosterWeb.Components.Dashboard.ProbForTucan do
     orient: :horizontal,
     width: 300,
     height: 150,
-    y: [
-        title: ""
-      ]
+    y: [title: ""],
+    fill_color: "#d62728",
+    corner_radius: 5
     )
     |> Tucan.set_title("Inclinação para acolhimento (5 = muito provável)")
     |> VegaLite.to_spec()

@@ -21,13 +21,18 @@ defmodule FosterWeb.Sites.Insights do
         </div>
       </div>
 
-      <.live_component module={FosterWeb.Components.Dashboard.AgeSpansTucan} id="age_spans" />
-      <.live_component module={FosterWeb.Components.Dashboard.GenderTucan} id="gender" />
-      <.live_component module={FosterWeb.Components.Dashboard.RegionsTucan} id="regions" />
-      <.live_component module={FosterWeb.Components.Dashboard.HeardTucan} id="heard_about" />
-      <.live_component module={FosterWeb.Components.Dashboard.ProbForTucan} id="probability" />
-      <.live_component module={FosterWeb.Components.Dashboard.MotivesForTucan} id="motives_for" />
-      <.live_component module={FosterWeb.Components.Dashboard.MotivesAgainstTucan} id="motives_against" />
+      <.live_component module={FosterWeb.Components.Dashboard.HeardAbout} id="heard_about" />
+      <.live_component module={FosterWeb.Components.Dashboard.InfoLevel} id="info_level" />
+      <.live_component module={FosterWeb.Components.Dashboard.FosterExperience} id="experience" />
+      <.live_component module={FosterWeb.Components.Dashboard.ProbFor} id="probability" />
+      <.live_component module={FosterWeb.Components.Dashboard.MotivesFor} id="motives_for" />
+      <.live_component module={FosterWeb.Components.Dashboard.Challenges} id="challenges" />
+      <.live_component module={FosterWeb.Components.Dashboard.Enablers} id="enablers" />
+      <.live_component module={FosterWeb.Components.Dashboard.Ages} id="age_spans" />
+      <.live_component module={FosterWeb.Components.Dashboard.Genders} id="genders" />
+      <.live_component module={FosterWeb.Components.Dashboard.Regions} id="regions" />
+      <.live_component module={FosterWeb.Components.Dashboard.Education} id="education" />
+      <.live_component module={FosterWeb.Components.Dashboard.Work} id="work" />
     </div>
     """
 

@@ -1,6 +1,5 @@
 defmodule FosterWeb.Components.Question3 do
   use FosterWeb, :live_component
-  # require Logger
 
   @impl true
   def handle_event("update_answers", %{"question_3" => answer}, socket) do
@@ -15,39 +14,27 @@ defmodule FosterWeb.Components.Question3 do
     ~H"""
     <div>
       <p class="text-2xl text-light_dark_matter font-inter">
-        Qual é a probabilidade de vir a ser uma Família de Acolhimento?
+        Alguma vez foi família de acolhimento ou conhece alguém que o é/foi?
       </p>
 
       <.simple_form
         for={}
         phx-change="update_answers"
-        phx-target={@myself}>
-
+        phx-target={@myself}
+        >
         <div class="flex items-center gap-2">
-          <input type="radio" name="question_3" value="1" >
-          <p class="font-nohemt">1 - Improvável</p>
+          <input type="radio" name="question_3" value="Já acolhi" >
+          <p class="font-nohemt">Já fui/sou família de acolhimento</p>
         </div>
 
         <div class="flex items-center gap-2">
-          <input type="radio" name="question_3" value="2" >
-          <p class="font-nohemt">2 - Pouco provável</p>
+          <input type="radio" name="question_3" value="Conheço alguém">
+          <p class="font-nohemt">Conheço alguém que foi/é</p>
         </div>
-
         <div class="flex items-center gap-2">
-          <input type="radio" name="question_3" value="3" >
-          <p class="font-nohemt">3 - Eventualmente</p>
+          <input type="radio" name="question_3" value="Não">
+          <p class="font-nohemt">Não</p>
         </div>
-
-        <div class="flex items-center gap-2">
-          <input type="radio" name="question_3" value="4" >
-          <p class="font-nohemt">4 - Algo provável</p>
-        </div>
-
-        <div class="flex items-center gap-2">
-          <input type="radio" name="question_3" value="5">
-          <p class="font-nohemt">5 - Muito provável</p>
-        </div>
-
       </.simple_form>
     </div>
     """

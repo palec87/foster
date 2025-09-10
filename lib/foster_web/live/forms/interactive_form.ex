@@ -8,14 +8,17 @@ defmodule FosterWeb.InteractiveForm do
   def mount(_params, _session, socket) do
     pages = %{1 => :q0,
               2 => :q1,
-              3 => :i0,
-              4 => :q2,
-              5 => :i1,
-              6 => :q3,
-              7 => :i2,
-              8 => :q4,
-              9 => :i3,
-              10 => :q5,
+              3 => :q2,
+              4 => :i0,
+              5 => :q3,
+              6 => :i1,
+              7 => :q4,
+              8 => :q5,
+              9 => :i2,
+              10 => :q6,
+              11 => :i3,
+              12 => :q7,
+              13 => :q8,
             }
     {:ok,
       socket
@@ -87,9 +90,9 @@ defmodule FosterWeb.InteractiveForm do
   def handle_event("submit_answers", _params, socket) do
     case Foster.Answers.create_answer(%{body: socket.assigns.answers}) do
       {:ok, _answer} ->
-        {:noreply, socket |> put_flash(:info, "Respostas enviadas com sucesso!") |> push_redirect(to: "/support")}
+        {:noreply, socket |> put_flash(:info, "Respostas enviadas com sucesso!") |> push_navigate(to: "/support")}
       {:error, _changeset} ->
-        {:noreply, socket |> put_flash(:error, "Erro ao enviar respostas") |> push_redirect(to: "/support")}
+        {:noreply, socket |> put_flash(:error, "Erro ao enviar respostas") |> push_navigate(to: "/support")}
     end
   end
 
@@ -120,12 +123,12 @@ defmodule FosterWeb.InteractiveForm do
                 <.button type="submit">Anterior</.button>
               </form>
             <% end %>
-            <%= if @page != :q5 do %>
+            <%= if @page != :q8 do %>
               <form phx-submit="next_page">
                 <.button type="submit">Seguinte</.button>
               </form>
             <% end %>
-            <%= if @page == :q5 do %>
+            <%= if @page == :q8 do %>
               <form phx-submit="submit_answers">
                 <.button type="submit">Enviar Respostas</.button>
               </form>

@@ -1,12 +1,12 @@
-defmodule FosterWeb.Components.Dashboard.MotivesAgainstTucan do
+defmodule FosterWeb.Components.Dashboard.Challenges do
   use FosterWeb, :live_component
 
    @impl true
-  def update(assigns, socket) do
+  def update(_assigns, socket) do
     answers =
       Foster.Answers.all_answers()
       |> Enum.flat_map(fn answer ->
-        case get_in(answer.body, ["q5", "challenges"]) do
+        case get_in(answer.body, ["q6", "challenges"]) do
           nil -> []
           motives when is_list(motives) -> motives
           motive -> [motive]
@@ -31,19 +31,21 @@ defmodule FosterWeb.Components.Dashboard.MotivesAgainstTucan do
       y: [
         sort: "-x" ,  # sort categories by contagem descending
         title: ""
-      ]
+      ],
+      fill_color: "#8c564b",
+      corner_radius: 5
     )
     |> Tucan.set_title("Distribuição por ANTI-motivo")
     |> VegaLite.to_spec()
 
-    {:ok, push_event(socket, "draw_motives_against", %{"spec" => plot})}
+    {:ok, push_event(socket, "draw_challenges", %{"spec" => plot})}
   end
 
   @impl true
   def render(assigns) do
     ~H"""
     <div>
-      <div id="motives_against" phx-hook="DrawMotivesAgainst" style="margin-top: 20px; display: flex; justify-content: center;"></div>
+      <div id="challenges" phx-hook="DrawChallenges" style="margin-top: 20px; display: flex; justify-content: center;"></div>
     </div>
     """
   end

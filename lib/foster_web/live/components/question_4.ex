@@ -1,41 +1,11 @@
 defmodule FosterWeb.Components.Question4 do
   use FosterWeb, :live_component
+  # require Logger
 
   @impl true
-  def mount(socket) do
-    {:ok,
-      socket
-      |> assign(:no_kids, false)
-      |> assign(:altruism, false)
-      |> assign(:fin_benefits, false)
-      |> assign(:no_interest, false)
-      |> assign(:other, "")
-      |> assign(:answers, %{})
-    }
-  end
-
-  @impl true
-  def handle_event("update_answers", params, socket) do
-    # Extract the relevant answers from params
-    filtered_answers = params
-      |> Enum.filter(fn {key, value} -> value == "true" and key != "other" end)
-      |> Enum.map(fn {key, _} -> key end)
-
-    other = Map.get(params, "other", "")
-    answers_with_other =
-      if other != "" do
-        filtered_answers ++ [other]
-      else
-        filtered_answers
-      end
-
-    updated_answers = Map.put(
-      socket.assigns.answers,
-      :motive_for_fostering,
-      answers_with_other
-    )
-
-    send(self(), {:update_answers, updated_answers})
+  def handle_event("update_answers", %{"question_4" => answer}, socket) do
+    # Update the interactive form with the new answer
+    send(self(), {:update_answers, answer})
 
     {:noreply, socket}
   end
@@ -45,50 +15,41 @@ defmodule FosterWeb.Components.Question4 do
     ~H"""
     <div>
       <p class="text-2xl text-light_dark_matter font-inter">
-        Quais são os principais motivos da sua resposta anterior?
+        Qual é a probabilidade de vir a ser uma Família de Acolhimento?
       </p>
 
       <.simple_form
         for={}
         phx-change="update_answers"
-        phx-target={@myself}
-        >
+        phx-target={@myself}>
+
         <div class="flex items-center gap-2">
-          <.input type="checkbox" name="Não poder ter filhos" checked={@no_kids == "true"} />
-          <div>
-            <p class="font-nohemt">Não poder ter filhos</p>
-          </div>
+          <input type="radio" name="question_4" value="1" >
+          <p class="font-nohemt">1 - Improvável</p>
         </div>
 
         <div class="flex items-center gap-2">
-          <.input type="checkbox" name="Altruismo" checked={@altruism == "true"} />
-          <div>
-            <p class="font-nohemt">Assegurar ambiente familiar a uma criança vulnerável</p>
-          </div>
+          <input type="radio" name="question_4" value="2" >
+          <p class="font-nohemt">2 - Pouco provável</p>
         </div>
 
         <div class="flex items-center gap-2">
-          <.input type="checkbox" name="Benefícios Financeiros" checked={@fin_benefits == "true"} />
-          <div>
-            <p class="font-nohemt">Apoio e benefícios financeiros</p>
-          </div>
+          <input type="radio" name="question_4" value="3" >
+          <p class="font-nohemt">3 - Eventualmente</p>
         </div>
 
         <div class="flex items-center gap-2">
-          <.input type="checkbox" name="Não tenho interesse" checked={@no_interest == "true"} />
-          <div>
-            <p class="font-nohemt">Não tenho interesse</p>
-          </div>
+          <input type="radio" name="question_4" value="4" >
+          <p class="font-nohemt">4 - Algo provável</p>
         </div>
 
         <div class="flex items-center gap-2">
-          <.label>Outro</.label>
-          <.input name="other" value="" placeholder="outro"/>
+          <input type="radio" name="question_4" value="5">
+          <p class="font-nohemt">5 - Muito provável</p>
         </div>
 
       </.simple_form>
     </div>
     """
   end
-
 end

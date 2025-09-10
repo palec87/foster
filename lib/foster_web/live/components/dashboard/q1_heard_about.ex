@@ -1,17 +1,23 @@
-defmodule FosterWeb.Components.Dashboard.HeardTucan do
+defmodule FosterWeb.Components.Dashboard.HeardAbout do
   use FosterWeb, :live_component
 
   @impl true
-  def update(assigns, socket) do
+  def update(_assigns, socket) do
     answers =
       Foster.Answers.all_answers()
-      |> Enum.group_by(fn answer -> get_in(answer.body, ["q1", "heard_about_fostering"]) end)
-      |> Enum.reject(fn {groupname, _answers} -> is_nil(groupname) end)  # Filter out nil age spans
-      |> Enum.map(fn {groupname, answers} -> [groupname, length(answers)]  end)
+      |> Enum.flat_map(fn answer ->
+        case get_in(answer.body, ["q1", "heard_about_fostering"]) do
+          nil -> []
+          vals when is_list(vals) -> vals
+          val -> [val]
+        end
+      end)
+      |> Enum.frequencies()
+      |> Enum.map(fn {val, count} -> [val, count] end)
 
     IO.inspect(answers)
 
-    data = answers |> Enum.map(fn [heard_about, count] -> %{"ouvir_falar" => heard_about, "contagem" => count} end)
+    data = answers |> Enum.map(fn [val, count] -> %{"ouvir_falar" => val, "contagem" => count} end)
 
     plot = Tucan.bar(data, "ouvir_falar", "contagem",
     tooltip: true,
@@ -21,7 +27,9 @@ defmodule FosterWeb.Components.Dashboard.HeardTucan do
     y: [
         sort: "-x",   # sort categories by contagem descending
         title: ""
-      ]
+      ],
+    fill_color: "#7f7f7f",
+    corner_radius: 5
     )
     |> Tucan.set_title("Conhecimento prévio")
     |> VegaLite.to_spec()

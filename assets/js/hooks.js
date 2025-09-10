@@ -33,13 +33,29 @@ let DrawEUnumbers = {
   }
 };
 
-let DrawSpans = {
+// Question 8, several items
+let DrawAges = {
   mounted() {
-    this.handleEvent("draw_spans", ({ spec }) => {
+    this.handleEvent("draw_ages", ({ spec }) => {
       const runtime = vl.compile(spec).spec;
       const view = new vega.View(vega.parse(runtime))
         .renderer('canvas')
-        .initialize('#spans')
+        .initialize('#ages')
+        .hover()
+        .run();
+
+      new Handler().call(view);
+    });
+  }
+};
+
+let DrawEducation = {
+  mounted() {
+    this.handleEvent("draw_education", ({ spec }) => {
+      const runtime = vl.compile(spec).spec;
+      const view = new vega.View(vega.parse(runtime))
+        .renderer('canvas')
+        .initialize('#education')
         .hover()
         .run();
 
@@ -63,21 +79,6 @@ let DrawGender = {
   }
 };
 
-let DrawHeardAbout = {
-  mounted() {
-    this.handleEvent("draw_heard_about", ({ spec }) => {
-      const runtime = vl.compile(spec).spec;
-      const view = new vega.View(vega.parse(runtime))
-        .renderer('canvas')
-        .initialize('#heard_about')
-        .hover()
-        .run();
-
-      new Handler().call(view);
-    });
-  }
-};
-
 let DrawRegion = {
   mounted() {
     this.handleEvent("draw_region", ({ spec }) => {
@@ -93,6 +94,71 @@ let DrawRegion = {
   }
 };
 
+let DrawWork = {
+  mounted() {
+    this.handleEvent("draw_work", ({ spec }) => {
+      const runtime = vl.compile(spec).spec;
+      const view = new vega.View(vega.parse(runtime))
+        .renderer('canvas')
+        .initialize('#work')
+        .hover()
+        .run();
+
+      new Handler().call(view);
+    });
+  }
+};
+
+// Question 1, heard about fostering
+let DrawHeardAbout = {
+  mounted() {
+    this.handleEvent("draw_heard_about", ({ spec }) => {
+      const runtime = vl.compile(spec).spec;
+      const view = new vega.View(vega.parse(runtime))
+        .renderer('canvas')
+        .initialize('#heard_about')
+        .hover()
+        .run();
+
+      new Handler().call(view);
+    });
+  }
+};
+
+// Question 2, info level
+let DrawInfoLevel = {
+  mounted() {
+    this.handleEvent("draw_info_level", ({ spec }) => {
+      const runtime = vl.compile(spec).spec;
+      const view = new vega.View(vega.parse(runtime))
+        .renderer('canvas')
+        .initialize('#info_level')
+        .hover()
+        .run();
+
+      new Handler().call(view);
+    });
+  }
+};
+
+
+// Foster experience, q3
+let DrawExperience = {
+  mounted() {
+    this.handleEvent("draw_experience", ({ spec }) => {
+      const runtime = vl.compile(spec).spec;
+      const view = new vega.View(vega.parse(runtime))
+        .renderer('canvas')
+        .initialize('#experience')
+        .hover()
+        .run();
+
+      new Handler().call(view);
+    });
+  }
+};
+
+// Question 4, probability to foster
 let DrawProbFor = {
   mounted() {
     this.handleEvent("draw_prob_for", ({ spec }) => {
@@ -108,6 +174,7 @@ let DrawProbFor = {
   }
 };
 
+// Question 5, motives for fostering
 let DrawMotivesFor = {
   mounted() {
     this.handleEvent("draw_motives_for", ({ spec }) => {
@@ -123,13 +190,14 @@ let DrawMotivesFor = {
   }
 };
 
-let DrawMotivesAgainst = {
+// Question 6, challenges
+let DrawChallenges = {
   mounted() {
-    this.handleEvent("draw_motives_against", ({ spec }) => {
+    this.handleEvent("draw_challenges", ({ spec }) => {
       const runtime = vl.compile(spec).spec;
       const view = new vega.View(vega.parse(runtime))
         .renderer('canvas')
-        .initialize('#motives_against')
+        .initialize('#challenges')
         .hover()
         .run();
 
@@ -138,6 +206,26 @@ let DrawMotivesAgainst = {
   }
 };
 
-export { DrawPTnumbers, DrawEUnumbers, DrawSpans,
-  DrawGender, DrawHeardAbout, DrawRegion, DrawProbFor,
-  DrawMotivesFor, DrawMotivesAgainst };
+// Question 7, enablers
+let DrawEnablers = {
+  mounted() {
+    this.handleEvent("draw_enablers", ({ spec }) => {
+      const runtime = vl.compile(spec).spec;
+      const view = new vega.View(vega.parse(runtime))
+        .renderer('canvas')
+        .initialize('#enablers')
+        .hover()
+        .run();
+
+      new Handler().call(view);
+    });
+  }
+};
+
+export { DrawPTnumbers, DrawEUnumbers, DrawAges,
+  DrawGender, DrawEducation, DrawWork,
+  DrawHeardAbout,
+  DrawRegion, DrawInfoLevel,
+  DrawExperience, DrawProbFor, 
+  DrawMotivesFor, DrawChallenges,
+  DrawEnablers };

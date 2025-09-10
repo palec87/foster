@@ -9,6 +9,7 @@ defmodule FosterWeb.Sites.PrivacyPolicy do
     }
   end
 
+  @impl true
   def render(assigns) do
     ~H"""
     <div>

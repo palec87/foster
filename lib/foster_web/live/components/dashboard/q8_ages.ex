@@ -1,11 +1,11 @@
-defmodule FosterWeb.Components.Dashboard.AgeSpansTucan do
+defmodule FosterWeb.Components.Dashboard.Ages do
   use FosterWeb, :live_component
 
   @impl true
-  def update(assigns, socket) do
+  def update(_assigns, socket) do
     spans =
       Foster.Answers.all_answers()
-      |> Enum.group_by(fn answer -> get_in(answer.body, ["q2", "agespan"]) end)
+      |> Enum.group_by(fn answer -> get_in(answer.body, ["q8", "agespan"]) end)
       |> Enum.reject(fn {groupname, _answers} -> is_nil(groupname) end)  # Filter out nil age spans
       |> Enum.map(fn {groupname, answers} -> [groupname, length(answers)]  end)
 
@@ -17,14 +17,12 @@ defmodule FosterWeb.Components.Dashboard.AgeSpansTucan do
     orient: :horizontal,
     width: 300,
     height: 150,
-    y: [
-        title: ""
-      ]
+    y: [title: ""]
     )
     |> Tucan.set_title("Faixa etária de todos os participantes")
     |> VegaLite.to_spec()
 
-    {:ok, push_event(socket, "draw_spans", %{"spec" => plot})}
+    {:ok, push_event(socket, "draw_ages", %{"spec" => plot})}
   end
 
   @impl true
@@ -34,7 +32,7 @@ defmodule FosterWeb.Components.Dashboard.AgeSpansTucan do
       <%!-- <span class="font-nohemi ">
         Portugal está em último lugar na Europa. Vamos fazer melhor?
       </span> --%>
-      <div id="spans" phx-hook="DrawSpans" style="margin-top: 20px; display: flex; justify-content: center;"></div>
+      <div id="ages" phx-hook="DrawAges" style="margin-top: 20px; display: flex; justify-content: center;"></div>
     </div>
     """
   end

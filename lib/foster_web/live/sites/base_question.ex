@@ -8,7 +8,9 @@ defmodule FosterWeb.Sites.BaseQuestion do
     q3: FosterWeb.Components.Question3,
     q4: FosterWeb.Components.Question4,
     q5: FosterWeb.Components.Question5,
-    # endpage: FosterWeb.Components.Endpage,
+    q6: FosterWeb.Components.Question6,
+    q7: FosterWeb.Components.Question7,
+    q8: FosterWeb.Components.Question8,
   }
 
   @impl true

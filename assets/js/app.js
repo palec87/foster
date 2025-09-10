@@ -23,22 +23,30 @@ import {LiveSocket} from "phoenix_live_view"
 import topbar from "../vendor/topbar"
 
 import { DrawPTnumbers, DrawEUnumbers,
-  DrawSpans, DrawGender,
+  DrawAges, DrawGender,
+  DrawEducation, DrawWork,
   DrawHeardAbout, DrawRegion,
+  DrawInfoLevel,
   DrawProbFor, DrawMotivesFor,
-  DrawMotivesAgainst,
+  DrawChallenges, DrawExperience,
+  DrawEnablers
 } from "./hooks";
 
 let Hooks = {
   DrawPTnumbers: DrawPTnumbers,
   DrawEUnumbers: DrawEUnumbers,
-  DrawSpans: DrawSpans,
+  DrawAges: DrawAges,
   DrawGender: DrawGender,
-  DrawHeardAbout: DrawHeardAbout,
   DrawRegion: DrawRegion,
+  DrawEducation: DrawEducation,
+  DrawWork: DrawWork,
+  DrawHeardAbout: DrawHeardAbout,
+  DrawExperience: DrawExperience,
   DrawProbFor: DrawProbFor,
   DrawMotivesFor: DrawMotivesFor,
-  DrawMotivesAgainst: DrawMotivesAgainst
+  DrawChallenges: DrawChallenges,
+  DrawEnablers: DrawEnablers,
+  DrawInfoLevel: DrawInfoLevel
 };
 
 let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")

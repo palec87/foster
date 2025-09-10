@@ -56,39 +56,39 @@ defmodule FosterWeb.Components.Question1 do
         phx-target={@myself}
         >
         <div class="flex items-center gap-2">
-          <.input type="checkbox" name="social_media" checked={@social_media == "true"} />
+          <.input type="checkbox" name="Redes sociais" checked={@social_media == "true"} />
           <div>
             <p class="font-nohemt">Redes sociais</p>
           </div>
         </div>
 
         <div class="flex items-center gap-2">
-          <.input type="checkbox" name="media" checked={@media == "true"} />
+          <.input type="checkbox" name="Mídia" checked={@media == "true"} />
           <div>
-            <p class="font-nohemt">TV, Rádio ou Jornal</p>
+            <p class="font-nohemt">TV / Rádio / Jornal</p>
           </div>
         </div>
 
         <div class="flex items-center gap-2">
-          <.input type="checkbox" name="people" checked={@people == "true"} />
+          <.input type="checkbox" name="Pessoas" checked={@people == "true"} />
           <div>
-            <p class="font-nohemt">Familiares, amigos, colegas</p>
+            <p class="font-nohemt">Familiares / Amigos / Colegas</p>
           </div>
         </div>
 
         <div class="flex items-center gap-2">
-          <.input type="checkbox" name="organizations" checked={@organizations == "true"} />
-          <p class="font-nohemt">Instituições governamentais ou sem fins lucrativos</p>
+          <.input type="checkbox" name="Organizações" checked={@organizations == "true"} />
+          <p class="font-nohemt">Instituições governamentais / ONGs</p>
         </div>
 
         <div class="flex items-center gap-2">
-          <.input type="checkbox" name="internet" checked={@internet == "true"} />
+          <.input type="checkbox" name="Internet" checked={@internet == "true"} />
           <p class="font-nohemt">Internet em geral</p>
         </div>
 
         <div class="flex items-center gap-2">
           <.label>Outros (especificar)</.label>
-          <.input name="other" value="" placeholder="outro"/>
+          <.input name="Outro" value="" placeholder="outro"/>
         </div>
       </.simple_form>
     </div>

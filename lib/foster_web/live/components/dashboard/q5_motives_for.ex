@@ -1,12 +1,12 @@
-defmodule FosterWeb.Components.Dashboard.MotivesForTucan do
+defmodule FosterWeb.Components.Dashboard.MotivesFor do
   use FosterWeb, :live_component
 
   @impl true
-  def update(assigns, socket) do
+  def update(_assigns, socket) do
     answers =
       Foster.Answers.all_answers()
       |> Enum.flat_map(fn answer ->
-        case get_in(answer.body, ["q4", "motive_for_fostering"]) do
+        case get_in(answer.body, ["q5", "motive_for_fostering"]) do
           nil -> []
           motives when is_list(motives) -> motives
           motive -> [motive]
@@ -16,7 +16,6 @@ defmodule FosterWeb.Components.Dashboard.MotivesForTucan do
       |> Enum.map(fn {motive, count} -> [motive, count] end)
 
     IO.inspect(answers)
-
     data = answers |> Enum.map(fn [motivo, count] -> %{"motivo" => motivo, "contagem" => count} end)
 
     plot = Tucan.bar(data, "motivo", "contagem",
@@ -27,7 +26,9 @@ defmodule FosterWeb.Components.Dashboard.MotivesForTucan do
     y: [
         sort: "-x",   # sort categories by contagem descending
         title: ""
-      ]
+      ],
+    fill_color: "#9467bd",
+    corner_radius: 5
     )
     |> Tucan.set_title("Distribuição por motivo")
     |> VegaLite.to_spec()

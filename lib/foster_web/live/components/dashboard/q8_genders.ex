@@ -1,11 +1,11 @@
-defmodule FosterWeb.Components.Dashboard.GenderTucan do
+defmodule FosterWeb.Components.Dashboard.Genders do
   use FosterWeb, :live_component
 
   @impl true
-  def update(assigns, socket) do
+  def update(_assigns, socket) do
     genders =
       Foster.Answers.all_answers()
-      |> Enum.group_by(fn answer -> get_in(answer.body, ["q2", "gender"]) end)
+      |> Enum.group_by(fn answer -> get_in(answer.body, ["q8", "gender"]) end)
       |> Enum.reject(fn {groupname, _answers} -> is_nil(groupname) end)  # Filter out nil age spans
       |> Enum.map(fn {groupname, answers} -> [groupname, length(answers)]  end)
 
