@@ -9,9 +9,10 @@ defmodule FosterWeb.Sites.Support do
     }
   end
 
+  @impl true
   def render(assigns) do
     ~H"""
-    <div>
+    <div class="mx-10">
       <img src="/images/kids.svg" class=" mx-auto" />
       <span class="font-bold font-nohemi ">
         Mais informações e como ajudar no
@@ -34,7 +35,7 @@ defmodule FosterWeb.Sites.Support do
           Por favor, compartilhe com a sua rede
         </span>
 
-        <div class="flex gap-4">
+        <div class="flex gap-4 flex-wrap">
           <a href={"https://www.facebook.com/sharer/sharer.php?u=#{@url}"} target="_blank" class="text-blue-600">
             Facebook
           </a>
@@ -59,7 +60,8 @@ defmodule FosterWeb.Sites.Support do
         </div>
       </div>
       <%!-- Feedback part --%>
-      <div class="mt-4">
+      <%!-- <div class="mt-4"> --%>
+      <div class="mt-10 mb-10">
         <.live_component module={FosterWeb.Components.FeedbackSubscribe} id="subscribe" />
       </div>
     </div>

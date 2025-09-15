@@ -14,9 +14,13 @@ defmodule FosterWeb.Components.Info0 do
     orient: :horizontal,
     color_by: " ",
     corner_radius: 3,
+    width: :container,
     height: 200)
-    |> Tucan.set_title("Número total de crianças em cuidados alternativos", anchor: :middle, offset: 15)
+    # |> Tucan.set_title("Número de crianças em cuidados alternativos", anchor: :middle, offset: 15)
+    |> Tucan.Legend.set_enabled(:color, false)
     |> VegaLite.to_spec()
+    # add autosize so VegaLite will fit the container
+    |> Map.put("autosize", %{"type" => "fit-x"})
 
     {:ok, push_event(socket, "draw_pt_stats", %{"spec" => plot})}
   end
@@ -26,10 +30,15 @@ defmodule FosterWeb.Components.Info0 do
     ~H"""
     <div>
       <span class="font-nohemi ">
-        <b>95% das crianças</b> acolhidas no âmbito do Sistema de Promoção e Proteção encontram-se em acolhimento residencial, o que representa <b>o valor mais elevado entre os 42 países</b> analisados.
+        <p>
+          <b>95% das crianças</b> acolhidas no âmbito do Sistema de Promoção e Proteção encontram-se em acolhimento residencial, o que representa <b>o valor mais elevado entre os 42 países</b> analisados. <a href={"https://eurochild.org/uploads/2022/02/UNICEF-DataCare-Technical-Report-Final.pdf"} target="_blank" class="text-blue-600">UNICEF, Eurochild (2021)</a>.
+        </p>
+        <p style="margin-top: 20px">
+          Número de crianças em cuidados alternativos em Portugal.
+        </p>
       </span>
 
-      <div style="margin-top: 20px" id="pt_numbers" phx-hook="DrawPTnumbers"></div>
+       <div style="margin-top: 20px" id="pt_numbers" phx-hook="DrawPTnumbers"></div>
     </div>
     """
   end

@@ -16,7 +16,7 @@ defmodule FosterWeb.Components.Dashboard.Regions do
     plot = Tucan.bar(data, "regiao", "contagem",
     tooltip: true,
     orient: :horizontal,
-    width: 300,
+    width: :container,
     height: 150,
     y: [
         sort: "-x",   # sort categories by contagem descending
@@ -25,6 +25,8 @@ defmodule FosterWeb.Components.Dashboard.Regions do
     )
     |> Tucan.set_title("Distribuição por região")
     |> VegaLite.to_spec()
+    # add autosize so VegaLite will fit the container
+    |> Map.put("autosize", %{"type" => "fit-x"})
 
     {:ok, push_event(socket, "draw_region", %{"spec" => plot})}
   end

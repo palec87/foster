@@ -51,7 +51,7 @@ defmodule FosterWeb.Components.Question6 do
     ~H"""
     <div>
       <p class="text-2xl text-light_dark_matter font-inter">
-        Qoais são os principais desafios para que seja uma Família de Acolhimento? (marque todos os que se aplicam)
+        Quais são os principais desafios para que seja uma Família de Acolhimento? (marque todos os que se aplicam)
       </p>
 
       <.simple_form

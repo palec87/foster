@@ -21,13 +21,8 @@ defmodule FosterWeb.Components.Dashboard.Enablers do
     plot = Tucan.bar(data, "facilitador", "contagem",
       tooltip: true,
       orient: :horizontal,
-      width: 300,
+      width: :container,
       height: 150,
-      x: [
-        tickMinStep: 1,            # force step size = 1
-        # axis: %{format: ".0f"},   # ensure whole numbers on tick labels
-        # scale: %{nice: true},     # clean up scale
-      ],
       y: [
         sort: "-x" ,  # sort categories by contagem descending
         title: ""
@@ -37,6 +32,8 @@ defmodule FosterWeb.Components.Dashboard.Enablers do
     )
     |> Tucan.set_title("Aspectos facilitadores")
     |> VegaLite.to_spec()
+    # add autosize so VegaLite will fit the container
+    |> Map.put("autosize", %{"type" => "fit-x"})
 
     {:ok, push_event(socket, "draw_enablers", %{"spec" => plot})}
   end
