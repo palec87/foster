@@ -15,12 +15,14 @@ defmodule FosterWeb.Components.Dashboard.Ages do
     plot = Tucan.bar(data, "idade", "contagem",
     tooltip: true,
     orient: :horizontal,
-    width: 300,
+    width: :container,
     height: 150,
     y: [title: ""]
     )
     |> Tucan.set_title("Faixa etária de todos os participantes")
     |> VegaLite.to_spec()
+    # add autosize so VegaLite will fit the container
+    |> Map.put("autosize", %{"type" => "fit-x"})
 
     {:ok, push_event(socket, "draw_ages", %{"spec" => plot})}
   end

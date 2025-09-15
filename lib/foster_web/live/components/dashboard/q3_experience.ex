@@ -16,7 +16,7 @@ defmodule FosterWeb.Components.Dashboard.FosterExperience do
     plot = Tucan.bar(data, "experiencia", "contagem",
     tooltip: true,
     orient: :horizontal,
-    width: 300,
+    width: :container,
     height: 150,
     y: [title: ""],
     fill_color: "#2ca02c",
@@ -24,6 +24,8 @@ defmodule FosterWeb.Components.Dashboard.FosterExperience do
     )
     |> Tucan.set_title("Experiência prévia")
     |> VegaLite.to_spec()
+    # add autosize so VegaLite will fit the container
+    |> Map.put("autosize", %{"type" => "fit-x"})
 
     {:ok, push_event(socket, "draw_experience", %{"spec" => plot})}
   end

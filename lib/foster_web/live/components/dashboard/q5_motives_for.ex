@@ -21,7 +21,7 @@ defmodule FosterWeb.Components.Dashboard.MotivesFor do
     plot = Tucan.bar(data, "motivo", "contagem",
     tooltip: true,
     orient: :horizontal,
-    width: 300,
+    width: :container,
     height: 150,
     y: [
         sort: "-x",   # sort categories by contagem descending
@@ -32,6 +32,8 @@ defmodule FosterWeb.Components.Dashboard.MotivesFor do
     )
     |> Tucan.set_title("Distribuição por motivo")
     |> VegaLite.to_spec()
+    # add autosize so VegaLite will fit the container
+    |> Map.put("autosize", %{"type" => "fit-x"})
 
     {:ok, push_event(socket, "draw_motives_for", %{"spec" => plot})}
   end

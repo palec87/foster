@@ -24,7 +24,7 @@ defmodule FosterWeb.Components.Info3 do
       %{"País" => "Malta", "%" => 95, "group" => "EU"},
       %{"País" => "Países Baixos", "%" => 52, "group" => "EU"},
       %{"País" => "Polónia", "%" => 58, "group" => "EU"},
-      %{"País" => "Portugal", "%" => 2, "group" => "PT"},
+      %{"País" => "PORTUGAL", "%" => 2, "group" => "PT"},
       %{"País" => "Roménia", "%" => 62, "group" => "EU"},
       %{"País" => "Eslováquia", "%" => 62, "group" => "EU"},
       %{"País" => "Eslovénia", "%" => 58, "group" => "EU"},
@@ -34,14 +34,23 @@ defmodule FosterWeb.Components.Info3 do
     ]
 
     plot = Tucan.bar(data, "País", "%",
-    tooltip: true,
     orient: :horizontal,
     color_by: "group",
     corner_radius: 3,
-    y: [sort: "-x"],
+    y: [
+      sort: "-x",
+      title: "",
+      # axis: [
+      #   labelExpr: "datum.value == 'Portugal' ? '#9467bd' : 'black'"
+      # ]
+    ],
+    tooltip: true,
+    width: :container,
     height: 400)
+    |> Tucan.Legend.set_enabled(:color, false)
     |> Tucan.set_title("Taxas de cuidados baseados na família na Europa", anchor: :middle, offset: 15)
     |> VegaLite.to_spec()
+    |> Map.put("autosize", %{"type" => "fit-x"})
 
     {:ok, push_event(socket, "draw_eu_stats", %{"spec" => plot})}
   end

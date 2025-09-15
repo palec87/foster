@@ -16,7 +16,7 @@ defmodule FosterWeb.Components.Dashboard.Work do
     plot = Tucan.bar(data, "estado_emprego", "contagem",
     tooltip: true,
     orient: :horizontal,
-    width: 300,
+    width: :container,
     height: 150,
     y: [
         sort: "-x",   # sort categories by contagem descending
@@ -25,6 +25,8 @@ defmodule FosterWeb.Components.Dashboard.Work do
     )
     |> Tucan.set_title("Distribuição por emprego")
     |> VegaLite.to_spec()
+    # add autosize so VegaLite will fit the container
+    |> Map.put("autosize", %{"type" => "fit-x"})
 
     {:ok, push_event(socket, "draw_work", %{"spec" => plot})}
   end

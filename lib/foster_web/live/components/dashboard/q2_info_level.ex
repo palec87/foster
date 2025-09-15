@@ -16,7 +16,7 @@ defmodule FosterWeb.Components.Dashboard.InfoLevel do
     plot = Tucan.bar(data, "nivel_informacao", "contagem",
     tooltip: true,
     orient: :horizontal,
-    width: 300,
+    width: :container,
     height: 150,
     y: [title: ""],
     fill_color: "#ff7f0e",
@@ -24,6 +24,8 @@ defmodule FosterWeb.Components.Dashboard.InfoLevel do
     )
     |> Tucan.set_title("Conhecimento prévio (5 = muito informado(a))")
     |> VegaLite.to_spec()
+    # add autosize so VegaLite will fit the container
+    |> Map.put("autosize", %{"type" => "fit-x"})
 
     {:ok, push_event(socket, "draw_info_level", %{"spec" => plot})}
   end

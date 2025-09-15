@@ -22,7 +22,7 @@ defmodule FosterWeb.Components.Dashboard.HeardAbout do
     plot = Tucan.bar(data, "ouvir_falar", "contagem",
     tooltip: true,
     orient: :horizontal,
-    width: 300,
+    width: :container,
     height: 150,
     y: [
         sort: "-x",   # sort categories by contagem descending
@@ -33,6 +33,8 @@ defmodule FosterWeb.Components.Dashboard.HeardAbout do
     )
     |> Tucan.set_title("Conhecimento prévio")
     |> VegaLite.to_spec()
+    # add autosize so VegaLite will fit the container
+    |> Map.put("autosize", %{"type" => "fit-x"})
 
     {:ok, push_event(socket, "draw_heard_about", %{"spec" => plot})}
   end

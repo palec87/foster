@@ -36,24 +36,32 @@ defmodule FosterWeb.Components.FeedbackSubscribe do
     <div>
       <span class="font-bold font-nohemi ">Subscreva a nossa newsletter</span>
         <form phx-submit="subscribe" phx-target={@myself}>
-          <div class="h-20 grid grid-cols-3 gap-4 content-center">
-            <input type="email" name="email" placeholder="Seu email" required />
-            <.button type="submit">Subscrever</.button>
+          <div class="h-16 grid grid-cols-3 gap-4 content-center">
+            <input class="col-span-2 border rounded" type="email" name="email" placeholder="Seu email" required />
+            <.button class="col-span-1" type="submit">Subscrever</.button>
           </div>
         </form>
 
-      <span class="font-bold font-nohemi ">Tem algum feedback?</span>
+      <span class="font-bold font-nohemi">Tem algum feedback?</span>
       <p>
       Seja técnico ou sobre o conteúdo, por favor, avise-nos e ajude a nossa causa.
       </p>
-      <form phx-submit="send_feedback" phx-target={@myself}>
-          <textarea name="feedback" placeholder="Seu feedback" required rows="6" cols="70" class="col-span-2"></textarea>
-          <div class="h-20 grid grid-cols-3 gap-4 content-center">
-            <.button type="submit" class="col-span-1 row-span-1">Enviar Feedback</.button>
-          </div>
-      </form>
+
+      <div class="w-full max-w-3xl mx-auto">
+        <form phx-submit="send_feedback" phx-target={@myself} class="flex flex-col gap-2">
+            <textarea
+              class="w-full p-2 border rounded"
+              name="feedback"
+              placeholder="Seu feedback"
+              rows="5"
+            ></textarea>
+            <.button type="submit" class="w-44">Enviar Feedback</.button>
+        </form>
+      </div>
     </div>
     """
   end
 
 end
+
+# required rows="6" cols="70"
