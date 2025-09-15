@@ -1,7 +1,7 @@
 defmodule FosterWeb.Components.NavBar do
   use FosterWeb, :live_component
 
-  def update(params, socket) do
+  def update(_params, socket) do
     {:ok,
      socket
      |> assign(:languages, @languages)}

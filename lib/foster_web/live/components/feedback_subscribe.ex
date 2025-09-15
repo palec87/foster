@@ -14,9 +14,15 @@ defmodule FosterWeb.Components.FeedbackSubscribe do
   def handle_event("subscribe", %{"email" => email}, socket) do
     case Foster.Subscriptions.create_subscribe(%{email: email}) do
       {:ok, _subscribe} ->
-        {:noreply, socket |> put_flash(:info, "Inscrição realizada com sucesso!") |> push_navigate(to: "/support")}
+        {:noreply, socket
+        |> put_flash(:info, "Inscrição realizada com sucesso!")
+        |> push_navigate(to: "/support")
+      }
       {:error, _changeset} ->
-        {:noreply, socket |> put_flash(:error, "Erro ao realizar inscrição") |> push_navigate(to: "/support")}
+        {:noreply, socket
+        |> put_flash(:error, "Erro ao realizar inscrição")
+        |> push_navigate(to: "/support")
+      }
     end
   end
 
@@ -24,9 +30,15 @@ defmodule FosterWeb.Components.FeedbackSubscribe do
   def handle_event("send_feedback", %{"feedback" => feedback}, socket) do
     case Foster.Feedback.create_feedback(%{body: %{"feedback" => feedback}}) do
       {:ok, _feedback} ->
-        {:noreply, socket |> put_flash(:info, "Feedback enviado com sucesso!") |> push_navigate(to: "/support")}
+        {:noreply, socket
+        |> put_flash(:info, "Feedback enviado com sucesso!")
+        |> push_navigate(to: "/support")
+      }
       {:error, _changeset} ->
-        {:noreply, socket |> put_flash(:error, "Erro ao enviar feedback") |> push_navigate(to: "/support")}
+        {:noreply, socket
+        |> put_flash(:error, "Erro ao enviar feedback")
+        |> push_navigate(to: "/support")
+      }
     end
   end
 
