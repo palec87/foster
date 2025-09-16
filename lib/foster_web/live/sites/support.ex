@@ -15,7 +15,7 @@ defmodule FosterWeb.Sites.Support do
     <div class="mx-10">
       <img src="/images/kids.svg" class=" mx-auto" />
       <span class="font-bold font-nohemi ">
-        Mais informações e como ajudar no
+        Mais informações sobre como ajudar o
         <a href="https://www.protecaoarapariga.pt/" target="_blank" class="text-blue-600">
           AIPAR
         </a>
@@ -28,6 +28,9 @@ defmodule FosterWeb.Sites.Support do
             <li><strong>Consignação do IRS (1%) ou 0,15% do IVA suportado.</strong> NIF: <strong>501650296</strong> (Sem qualquer custo adicional para si)</li>
             <li><strong>Donativo:</strong> NIB BPI: <strong>PT50 0010 0000 61075010001 98</strong></li>
         </ol>
+      </p>
+      <p class="mt-4">
+        Todas as instituições responsáveis pelo acolhimento familiar, organizadas por localização geográfica, podem ser encontradas <a href={"https://www.seg-social.pt/storage1/files/Contactos-instituicoes-acolhimento-familiar-Swj8bOyqv98sbN1qucwZFw.pdf"} target="_blank" class="text-blue-700">aqui</a>.
       </p>
 
       <div class="mt-4">

@@ -12,47 +12,45 @@ defmodule FosterWeb.Sites.PrivacyPolicy do
   @impl true
   def render(assigns) do
     ~H"""
-    <div>
-        <span class="font-bold font-nohemi mx-10">Privacy Policy</span>
-      <p>Effective Date: September 3, 2025</p>
-      <p>This Privacy Policy describes how Foster ("we", "us", or "our") collects, uses, and protects your information when you use our application.</p>
+    <div class="mx-10">
+      <span class="font-bold font-nohemi">Política de Privacidade</span>
+      <p>Data de Vigência: 16 de setembro de 2025</p>
+      <p>Esta Política de Privacidade descreve como a Foster ("nós", "nos" ou "nosso") coleta, utiliza e protege suas informações quando você usa nossa aplicação.</p>
 
-      <span class="font-bold font-nohemi mx-10">Information we collect</span>
+      <span class="font-bold font-nohemi">Informações que coletamos</span>
       <ul>
-        <li>Personal information you provide (such as name, email, etc.)</li>
-        <li>Feedback and answers submitted through the app</li>
+        <li>Feedback e respostas enviadas através da aplicação</li>
+        <li>Email em caso de subscrição</li>
       </ul>
 
-      <span class="font-bold font-nohemi mx-10">How We Use Your Information</span>
+      <span class="font-bold font-nohemi">Como usamos esses informações</span>
       <ul>
-        <li>To provide and improve our services</li>
-        <li>To communicate with you about your account or feedback</li>
-        <li>For analytics and research purposes</li>
+        <li>Para fornecer e melhorar nossos serviços</li>
+        <li>Para comunicar com você sobre sua conta ou feedback</li>
       </ul>
 
-      <span class="font-bold font-nohemi mx-10">Data Storage and Protection</span>
+      <span class="font-bold font-nohemi">Armazenamento e Proteção de Dados</span>
       <ul>
-        <li>Data is stored securely using industry-standard practices</li>
-        <li>Access to data is restricted to authorized personnel only</li>
+        <li>Os dados são armazenados de forma segura utilizando práticas padrão do setor</li>
+        <li>O acesso aos dados é restrito apenas a pessoal autorizado</li>
       </ul>
 
-      <span class="font-bold font-nohemi mx-10">Third-Party Services</span>
+      <span class="font-bold font-nohemi">Serviços de Terceiros</span>
       <ul>
-        <li>We may use third-party services for hosting, or communication</li>
-        <li>We do not do any analytics or tracking of user behavior</li>
+        <li>Não realizamos análise ou rastreamento do comportamento dos utilizadores</li>
       </ul>
 
-      <span class="font-bold font-nohemi mx-10">User Rights</span>
+      <span class="font-bold font-nohemi">Direitos do Utilizador</span>
       <ul>
-        <li>You may request access to, correction, or deletion of your personal data</li>
-        <li>Contact us at [ddthumb[at]gmail.com] for privacy-related requests</li>
+        <li>Você pode solicitar acesso, correção ou exclusão dos seus dados pessoais</li>
+        <li>Entre em contato conosco pelo email ddthumb[at]gmail.com para solicitações relacionadas à privacidade</li>
       </ul>
 
-      <span class="font-bold font-nohemi mx-10">Changes to This Policy</span>
-      <p>We may update this Privacy Policy from time to time. Changes will be posted in this file with the updated effective date.</p>
+      <span class="font-bold font-nohemi">Alterações nesta Política</span>
+      <p>Podemos atualizar esta Política de Privacidade de tempos em tempos. As alterações serão publicadas neste arquivo com a data de vigência atualizada.</p>
 
-      <span class="font-bold font-nohemi mx-10">Contact</span>
-      <p>For questions or concerns about this Privacy Policy, contact us at [ddthumb[at]gmail.com].</p>
+      <span class="font-bold font-nohemi">Contato</span>
+      <p>Para perguntas ou dúvidas sobre esta Política de Privacidade, entre em contato conosco pelo email ddthumb[at]gmail.com.</p>
     </div>
     """
   end

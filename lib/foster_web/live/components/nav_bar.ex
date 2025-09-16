@@ -21,7 +21,7 @@ defmodule FosterWeb.Components.NavBar do
         <a href="/estatisticas">Estatísticas</a>
       </div>
        <div>
-        <a href="/support">Apoiá-los</a>
+        <a href="/support">Apoio</a>
       </div>
     </div>
     """
