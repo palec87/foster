@@ -19,7 +19,7 @@ defmodule FosterWeb.Components.Dashboard.Ages do
     height: 150,
     y: [title: ""]
     )
-    |> Tucan.set_title("Faixa etária de todos os participantes")
+    |> Tucan.set_title("Faixa etária dos participantes")
     |> VegaLite.to_spec()
     # add autosize so VegaLite will fit the container
     |> Map.put("autosize", %{"type" => "fit-x"})

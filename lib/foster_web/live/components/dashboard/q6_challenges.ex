@@ -35,7 +35,7 @@ defmodule FosterWeb.Components.Dashboard.Challenges do
       fill_color: "#8c564b",
       corner_radius: 5
     )
-    |> Tucan.set_title("Distribuição por ANTI-motivo")
+    |> Tucan.set_title("Motivos contra")
     |> VegaLite.to_spec()
     # add autosize so VegaLite will fit the container
     |> Map.put("autosize", %{"type" => "fit-x"})

@@ -22,7 +22,7 @@ defmodule FosterWeb.Components.Dashboard.InfoLevel do
     fill_color: "#ff7f0e",
     corner_radius: 5
     )
-    |> Tucan.set_title("Conhecimento prévio (5 = muito informado(a))")
+    |> Tucan.set_title("Nível de conhecimento (5 = muito informado(a))")
     |> VegaLite.to_spec()
     # add autosize so VegaLite will fit the container
     |> Map.put("autosize", %{"type" => "fit-x"})

@@ -31,7 +31,7 @@ defmodule FosterWeb.Components.Dashboard.HeardAbout do
     fill_color: "#7f7f7f",
     corner_radius: 5
     )
-    |> Tucan.set_title("Conhecimento prévio")
+    |> Tucan.set_title("Fonte de informação")
     |> VegaLite.to_spec()
     # add autosize so VegaLite will fit the container
     |> Map.put("autosize", %{"type" => "fit-x"})

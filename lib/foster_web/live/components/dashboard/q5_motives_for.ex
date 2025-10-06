@@ -30,7 +30,7 @@ defmodule FosterWeb.Components.Dashboard.MotivesFor do
     fill_color: "#9467bd",
     corner_radius: 5
     )
-    |> Tucan.set_title("Distribuição por motivo")
+    |> Tucan.set_title("Motivos a favor")
     |> VegaLite.to_spec()
     # add autosize so VegaLite will fit the container
     |> Map.put("autosize", %{"type" => "fit-x"})
