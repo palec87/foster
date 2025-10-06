@@ -63,7 +63,7 @@ defmodule FosterWeb.Components.Question1 do
         </div>
 
         <div class="flex items-center gap-2">
-          <.input type="checkbox" name="Mídia" checked={@media == "true"} />
+          <.input type="checkbox" name="Media" checked={@media == "true"} />
           <div>
             <p class="font-nohemt">TV / Rádio / Jornal</p>
           </div>
