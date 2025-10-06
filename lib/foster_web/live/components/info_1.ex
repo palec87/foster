@@ -6,7 +6,7 @@ defmodule FosterWeb.Components.Info1 do
     ~H"""
     <div>
       <span class="font-bold font-nohemi ">
-        Apoio financeiro pelas famílias de Acolhimento
+        Apoio financeiro para famílias de Acolhimento
       </span>
 
       <div>

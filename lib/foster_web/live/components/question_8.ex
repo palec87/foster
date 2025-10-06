@@ -49,8 +49,8 @@ defmodule FosterWeb.Components.Question8 do
         </div>
 
         <div class="flex items-center gap-2">
-          <.label>Gênero</.label>
-          <.input name="gender" value="" placeholder="Gênero" type="select"
+          <.label>Género</.label>
+          <.input name="gender" value="" placeholder="Género" type="select"
                   options={["--", "Não-binário", "Prefiro não dizer","Feminino", "Masculino"]} />
         </div>
 

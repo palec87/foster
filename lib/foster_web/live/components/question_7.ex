@@ -50,7 +50,7 @@ defmodule FosterWeb.Components.Question7 do
     ~H"""
     <div>
       <p class="text-2xl text-light_dark_matter font-inter">
-        O que ajudaria mais a considerar o acolhimento familiar? (escolha até 3)
+        O que motivaria mais a considerar o acolhimento familiar? (escolha até 3)
       </p>
 
       <.simple_form

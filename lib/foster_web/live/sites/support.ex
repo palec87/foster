@@ -15,7 +15,7 @@ defmodule FosterWeb.Sites.Support do
     <div class="mx-10">
       <img src="/images/kids.svg" class=" mx-auto" />
       <span class="font-bold font-nohemi ">
-        Mais informações sobre como ajudar o
+        Mais informações sobre como ajudar a
         <a href="https://www.protecaoarapariga.pt/" target="_blank" class="text-blue-600">
           AIPAR
         </a>

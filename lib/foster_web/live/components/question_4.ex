@@ -15,7 +15,7 @@ defmodule FosterWeb.Components.Question4 do
     ~H"""
     <div>
       <p class="text-2xl text-light_dark_matter font-inter">
-        Qual é a probabilidade de vir a ser uma Família de Acolhimento?
+        Qual é a probabilidade de vir a ser Família de Acolhimento?
       </p>
 
       <.simple_form

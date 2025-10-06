@@ -15,7 +15,7 @@ defmodule FosterWeb.Sites.PrivacyPolicy do
     <div class="mx-10">
       <span class="font-bold font-nohemi">Política de Privacidade</span>
       <p>Data de Vigência: 16 de setembro de 2025</p>
-      <p>Esta Política de Privacidade descreve como a Foster ("nós", "nos" ou "nosso") coleta, utiliza e protege suas informações quando você usa nossa aplicação.</p>
+      <p>Esta Política de Privacidade descreve como a Foster ("nós", "nos" ou "nosso") coleta, utiliza e protege suas informações quando você usa a nossa aplicação.</p>
 
       <span class="font-bold font-nohemi">Informações que coletamos</span>
       <ul>
@@ -25,8 +25,8 @@ defmodule FosterWeb.Sites.PrivacyPolicy do
 
       <span class="font-bold font-nohemi">Como usamos esses informações</span>
       <ul>
-        <li>Para fornecer e melhorar nossos serviços</li>
-        <li>Para comunicar com você sobre sua conta ou feedback</li>
+        <li>Para fornecer e melhorar os nossos serviços</li>
+        <li>Para comunicar com você sobre a sua conta ou feedback</li>
       </ul>
 
       <span class="font-bold font-nohemi">Armazenamento e Proteção de Dados</span>
