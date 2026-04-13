@@ -24,6 +24,9 @@ FROM ${BUILDER_IMAGE} as builder
 RUN apt-get update -y && apt-get install -y build-essential git nodejs npm curl\
     && apt-get clean && rm -f /var/lib/apt/lists/*_*
 
+
+RUN apt-get update -y && apt-get install -y dos2unix
+
 # prepare build dir
 WORKDIR /app
 
@@ -67,7 +70,12 @@ RUN mix compile
 COPY config/runtime.exs config/
 
 COPY rel rel
+# Fix CRLF line endings in rel/ templates before mix release generates files from them
+RUN find rel -type f -exec dos2unix {} \;
 RUN mix release
+# Remove Windows .bat files and fix any remaining CRLF line endings across the whole release
+RUN find /app/_build/${MIX_ENV}/rel/foster -name "*.bat" -delete \
+    && find /app/_build/${MIX_ENV}/rel/foster -type f \( -name "*.sh" -o -path "*/bin/*" \) -exec dos2unix {} \;
 
 # start a new build stage so that the final image will only contain
 # the compiled release and other runtime necessities
