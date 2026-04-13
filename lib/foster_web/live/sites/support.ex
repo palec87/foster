@@ -62,10 +62,17 @@ defmodule FosterWeb.Sites.Support do
           </a>
         </div>
       </div>
-      <%!-- Feedback part --%>
-      <%!-- <div class="mt-4"> --%>
-      <div class="mt-10 mb-10">
-        <.live_component module={FosterWeb.Components.FeedbackSubscribe} id="subscribe" />
+
+      <div class="mt-10 mb-10 rounded border p-6">
+        <span class="font-bold font-nohemi">Quer manter-se ligado?</span>
+        <p class="mt-2">
+          Subscreva a newsletter ou envie feedback na pagina de ligacao ao projeto.
+        </p>
+        <div class="mt-4">
+          <a href="/connect" class="rounded border px-4 py-2 font-nohemi hover:bg-gray-50 transition-colors">
+            Ir para Connect
+          </a>
+        </div>
       </div>
     </div>
     """

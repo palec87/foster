@@ -16,12 +16,12 @@ defmodule FosterWeb.Components.FeedbackSubscribe do
       {:ok, _subscribe} ->
         {:noreply, socket
         |> put_flash(:info, "Inscrição realizada com sucesso!")
-        |> push_navigate(to: "/support")
+        |> push_navigate(to: "/connect")
       }
       {:error, _changeset} ->
         {:noreply, socket
         |> put_flash(:error, "Erro ao realizar inscrição")
-        |> push_navigate(to: "/support")
+        |> push_navigate(to: "/connect")
       }
     end
   end
@@ -32,12 +32,12 @@ defmodule FosterWeb.Components.FeedbackSubscribe do
       {:ok, _feedback} ->
         {:noreply, socket
         |> put_flash(:info, "Feedback enviado com sucesso!")
-        |> push_navigate(to: "/support")
+        |> push_navigate(to: "/connect")
       }
       {:error, _changeset} ->
         {:noreply, socket
         |> put_flash(:error, "Erro ao enviar feedback")
-        |> push_navigate(to: "/support")
+        |> push_navigate(to: "/connect")
       }
     end
   end

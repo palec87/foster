@@ -20,11 +20,12 @@ defmodule FosterWeb.Router do
   scope "/", FosterWeb do
   pipe_through :browser
 
-  live "/", InteractiveForm
+  live "/", Sites.Home
+  live "/questionnaire", InteractiveForm
+  live "/learn-more", Sites.LearnMore
   live "/estatisticas", Sites.Insights
-  live "/donativos", Sites.Donations
-  live "/dashboard", Sites.Dashboard
   live "/support", Sites.Support
+  live "/connect", Sites.Connect
   live "/privacy", Sites.PrivacyPolicy
   end
 

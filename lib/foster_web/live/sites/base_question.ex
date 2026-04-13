@@ -15,10 +15,11 @@ defmodule FosterWeb.Sites.BaseQuestion do
 
   @impl true
   def render(assigns) do
-    component = Map.get(@page_components, assigns.current_page)
+    assigns = assign(assigns, :component, Map.get(@page_components, assigns.current_page))
+
     ~H"""
     <div>
-      <.live_component module={component} id={@current_page} />
+      <.live_component module={@component} id={@current_page} />
     </div>
     """
   end
